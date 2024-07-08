@@ -5,10 +5,11 @@ def init():
     global args
 
     example_text = '''examples:
-    python %(prog)s --help
-    python %(prog)s --record --inFile 'ClipRaw'
-    python %(prog)s --crop --outFile 'ClipRaw' --inFile 'ClipResult' -x 37 -y 160 -wd 576 -ht 665
-    python %(prog)s --slowDown --outFile 'ClipResult' --inFile 'ClipSlowResult' --speedRatio 0.66   
+    python3 %(prog)s --help
+    python3 %(prog)s --record --inFile 'ClipRaw'
+    python3 %(prog)s --crop --outFile 'ClipRaw' --inFile 'ClipResult' -x 37 -y 160 -wd 576 -ht 665
+    python3 %(prog)s --slowDown --outFile 'ClipResult' --inFile 'ClipSlowResult' --speedRatio 0.66
+    python3 %(prog)s --addTitle --outFile 'ClipSlowResult' --inFile 'ClipFinal' --caption 'SELECT'   
     '''
 
     parser = argparse.ArgumentParser(description='Helper for creating video clips.',
@@ -32,5 +33,9 @@ def init():
     # SlowDown
     parser.add_argument('--slowDown', action='store_true', help='Make a video clip slower.')
     parser.add_argument('--speedRatio', type=float, help='Speed ​​coefficient.')
+
+    # Title
+    parser.add_argument('--addTitle', action='store_true', help='Adding titles to a video clip.')
+    parser.add_argument('--caption', type=str, help='Caption.')
 
     args = parser.parse_args()    

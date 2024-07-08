@@ -1,8 +1,9 @@
+import src.arguments as commands
 from src.name_creator import *
 from src.video_recorder import *
 from src.crop_video import *
 from src.slow_down_video import *
-import src.arguments as commands
+from src.title_screen import *
 
 commands.init()
 
@@ -25,3 +26,9 @@ if(commands.args.slowDown):
     resultFile = "video/" + commands.args.inFile + ".avi"
     speedRatio = commands.args.speedRatio
     SlowDownVideo(outFile, resultFile, speedRatio)
+
+if(commands.args.addTitle):
+    caption = commands.args.caption
+    outFile = "video/" + commands.args.outFile + ".avi"
+    resultFile = "video/" + commands.args.inFile + ".avi"
+    AddTitle(caption, outFile, resultFile)
