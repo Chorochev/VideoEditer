@@ -1,5 +1,4 @@
 import argparse
-import os
 
 def init():
     global args
@@ -7,9 +6,10 @@ def init():
     example_text = '''examples:
     python3 %(prog)s --help
     python3 %(prog)s --record --inFile 'ClipRaw'
-    python3 %(prog)s --crop --outFile 'ClipRaw' --inFile 'ClipResult' -x 37 -y 160 -wd 576 -ht 665
-    python3 %(prog)s --slowDown --outFile 'ClipResult' --inFile 'ClipSlowResult' --speedRatio 0.66
-    python3 %(prog)s --addTitle --outFile 'ClipSlowResult' --inFile 'ClipFinal' --caption 'SELECT'   
+    python3 %(prog)s --crop --outFile 'ClipRaw' --inFile 'ClipCrop' -x 37 -y 160 -wd 576 -ht 665
+    python3 %(prog)s --slowDown --outFile 'ClipCrop' --inFile 'ClipSlow' --speedRatio 0.66
+    python3 %(prog)s --addTitle --outFile 'ClipCrop' --inFile 'ClipWithTitle' --caption 'SELECT'
+    python3 %(prog)s --addFade --outFile 'ClipCrop' --inFile 'ClipWithFade' --duration 2.1 
     '''
 
     parser = argparse.ArgumentParser(description='Helper for creating video clips.',
@@ -37,5 +37,9 @@ def init():
     # Title
     parser.add_argument('--addTitle', action='store_true', help='Adding titles to a video clip.')
     parser.add_argument('--caption', type=str, help='Caption.')
+
+    # Fade
+    parser.add_argument('--addFade', action='store_true', help='Adding a Fade Effect to a Video Clip.')
+    parser.add_argument('--duration', type=float, help='Duration of effect.')
 
     args = parser.parse_args()    

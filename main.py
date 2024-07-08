@@ -1,9 +1,10 @@
 import src.arguments as commands
-from src.name_creator import *
-from src.video_recorder import *
-from src.crop_video import *
-from src.slow_down_video import *
-from src.title_screen import *
+from src.name_creator import GetNewName
+from src.video_recorder import VideoRecord
+from src.crop_video import CropVideo
+from src.slow_down_video import SlowDownVideo
+from src.title_screen import AddTitle
+from src.fade_effect import AddFadeEffect
 
 commands.init()
 
@@ -32,3 +33,9 @@ if(commands.args.addTitle):
     outFile = "video/" + commands.args.outFile + ".avi"
     resultFile = "video/" + commands.args.inFile + ".avi"
     AddTitle(caption, outFile, resultFile)
+
+if(commands.args.addFade):    
+    outFile = "video/" + commands.args.outFile + ".avi"
+    resultFile = "video/" + commands.args.inFile + ".avi"
+    duration = commands.args.duration
+    AddFadeEffect(outFile, resultFile, duration)
