@@ -5,6 +5,7 @@ from src.crop_video import CropVideo
 from src.slow_down_video import SlowDownVideo
 from src.title_screen import AddTitle
 from src.fade_effect import AddFadeEffect
+from src.subclip import SubClip
 
 commands.init()
 
@@ -39,3 +40,10 @@ if(commands.args.addFade):
     resultFile = "video/" + commands.args.inFile + ".avi"
     duration = commands.args.duration
     AddFadeEffect(outFile, resultFile, duration)
+
+if(commands.args.subClip):
+    outFile = "video/" + commands.args.outFile + ".avi"
+    resultFile = "video/" + commands.args.inFile + ".avi"
+    start = commands.args.start
+    end = commands.args.end
+    SubClip(outFile, resultFile, start, end)

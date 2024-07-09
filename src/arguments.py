@@ -10,6 +10,7 @@ def init():
     python3 %(prog)s --slowDown --outFile 'ClipCrop' --inFile 'ClipSlow' --speedRatio 0.66
     python3 %(prog)s --addTitle --outFile 'ClipCrop' --inFile 'ClipWithTitle' --caption 'SELECT'
     python3 %(prog)s --addFade --outFile 'ClipCrop' --inFile 'ClipWithFade' --duration 2.1 
+    python3 %(prog)s --subClip --outFile 'ClipRaw' --inFile 'SubClip' --start 10 --end 13
     '''
 
     parser = argparse.ArgumentParser(description='Helper for creating video clips.',
@@ -41,5 +42,10 @@ def init():
     # Fade
     parser.add_argument('--addFade', action='store_true', help='Adding a Fade Effect to a Video Clip.')
     parser.add_argument('--duration', type=float, help='Duration of effect.')
+
+    # SubClip
+    parser.add_argument('--subClip', action='store_true', help='Make a subclip.')
+    parser.add_argument('--start', type=float, help='Start time in sec.')
+    parser.add_argument('--end', type=float, help='End time in sec.')
 
     args = parser.parse_args()    
