@@ -11,6 +11,7 @@ def init():
     python3 %(prog)s --addTitle --outFile 'ClipCrop' --inFile 'ClipWithTitle' --caption 'SELECT'
     python3 %(prog)s --addFade --outFile 'ClipCrop' --inFile 'ClipWithFade' --duration 2.1 
     python3 %(prog)s --subClip --outFile 'ClipRaw' --inFile 'SubClip' --start 10 --end 13
+    python3 %(prog)s --joinClips --name 'SubClip' --count 3 --inFile 'JoinClip'
     '''
 
     parser = argparse.ArgumentParser(description='Helper for creating video clips.',
@@ -47,5 +48,10 @@ def init():
     parser.add_argument('--subClip', action='store_true', help='Make a subclip.')
     parser.add_argument('--start', type=float, help='Start time in sec.')
     parser.add_argument('--end', type=float, help='End time in sec.')
+
+    # JoinClips
+    parser.add_argument('--joinClips', action='store_true', help='Join clips.')
+    parser.add_argument('--name', type=str, help='Name of clip without number.')
+    parser.add_argument('--count', type=int, help='Count of join clips.')
 
     args = parser.parse_args()    

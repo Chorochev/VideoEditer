@@ -6,6 +6,7 @@ from src.slow_down_video import SlowDownVideo
 from src.title_screen import AddTitle
 from src.fade_effect import AddFadeEffect
 from src.subclip import SubClip
+from src.join_videoclips import JoinVideClips
 
 commands.init()
 
@@ -47,3 +48,9 @@ if(commands.args.subClip):
     start = commands.args.start
     end = commands.args.end
     SubClip(outFile, resultFile, start, end)
+
+if(commands.args.joinClips):
+    name = commands.args.name
+    count = commands.args.count
+    resultFile = "video/" + commands.args.inFile + ".avi"    
+    JoinVideClips(name, count, resultFile)
