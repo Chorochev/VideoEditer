@@ -1,7 +1,12 @@
 import argparse
+from src.name_creator import CreateNewNameFile
 
-def init():
-    global args
+pathToVideo = "video"
+extensionFile = "avi"
+
+def init():   
+
+    global args 
 
     example_text = '''examples:
     python3 %(prog)s --help
@@ -54,4 +59,26 @@ def init():
     parser.add_argument('--name', type=str, help='Name of clip without number.')
     parser.add_argument('--count', type=int, help='Count of join clips.')
 
-    args = parser.parse_args()    
+    # GetNewName
+    parser.add_argument('--autoNameFile', action='store_true', help='Creating auto file names.')
+
+    args = parser.parse_args()
+
+
+def GetNameRecordFile(prefix: str):
+    if(args.autoNameFile):
+        return CreateNewNameFile(pathToVideo, prefix, extensionFile)
+    else:
+        return GetInFileName()
+
+def GetOutFileName():
+    if not (args.outFile is None):
+        return pathToVideo + "/" + args.outFile + "." + extensionFile
+    else:
+        return ""
+
+def GetInFileName():
+    if not (args.inFile is None):
+        return pathToVideo + "/" + args.inFile + "." + extensionFile
+    else:
+        return ""

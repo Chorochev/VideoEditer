@@ -16,12 +16,12 @@ python3 main.py --addFade --outFile 'SubClipRaw3' --inFile 'ClipWithFade3' --dur
 Write-Host "Concatenate videoclips:" -ForegroundColor Green
 python3 main.py --joinClips --name 'ClipWithFade' --count 3 --inFile 'JoinClip'
 
-Write-Host "Deleting" -ForegroundColor Yellow
-Remove-Item "video/ClipCrop.avi"  
+# Write-Host "Deleting" -ForegroundColor Yellow
+# Remove-Item "video/ClipCrop.avi"  
 
-Remove-Item "video/SubClipRaw1.avi" 
-Remove-Item "video/SubClipRaw2.avi" 
-Remove-Item "video/SubClipRaw3.avi" 
+# Remove-Item "video/SubClipRaw1.avi" 
+# Remove-Item "video/SubClipRaw2.avi" 
+# Remove-Item "video/SubClipRaw3.avi" 
 
 Remove-Item "video/ClipWithFade1.avi" 
 Remove-Item "video/ClipWithFade2.avi" 
