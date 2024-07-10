@@ -6,6 +6,7 @@ from src.title_screen import AddTitle
 from src.fade_effect import AddFadeEffect
 from src.subclip import SubClip
 from src.join_videoclips import JoinVideClips
+from src.change_speed import ChangeSpeedVideo
 
 commands.init()
 
@@ -14,7 +15,10 @@ resultFile = commands.GetInFileName()
 
 if(commands.args.record):      
     nameFile = commands.GetNameRecordFile("record")
-    VideoRecord(24.0, (1920, 1080) , nameFile)
+    fps = commands.args.fps
+    widthSCR = commands.args.widthSCR
+    heightSCR = commands.args.heightSCR
+    VideoRecord(fps, (widthSCR, heightSCR) , nameFile)
 
 if(commands.args.crop):  
     x1 = commands.args.x
@@ -44,3 +48,7 @@ if(commands.args.joinClips):
     name = commands.args.name
     count = commands.args.count    
     JoinVideClips(name, count, resultFile)
+
+if not (commands.args.speed is None):
+    speed = commands.args.speed
+    ChangeSpeedVideo(outFile, resultFile, 0.5)

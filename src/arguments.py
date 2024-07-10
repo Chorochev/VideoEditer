@@ -10,13 +10,14 @@ def init():
 
     example_text = '''examples:
     python3 %(prog)s --help
-    python3 %(prog)s --record --inFile 'ClipRaw'
+    python3 %(prog)s --record --inFile 'ClipRaw' --fps 10 --widthSCR 1920 --heightSCR 1080
     python3 %(prog)s --crop --outFile 'ClipRaw' --inFile 'ClipCrop' -x 37 -y 160 -wd 576 -ht 665
     python3 %(prog)s --slowDown --outFile 'ClipCrop' --inFile 'ClipSlow' --speedRatio 0.66
     python3 %(prog)s --addTitle --outFile 'ClipCrop' --inFile 'ClipWithTitle' --caption 'SELECT'
     python3 %(prog)s --addFade --outFile 'ClipCrop' --inFile 'ClipWithFade' --duration 2.1 
     python3 %(prog)s --subClip --outFile 'ClipRaw' --inFile 'SubClip' --start 10 --end 13
     python3 %(prog)s --joinClips --name 'SubClip' --count 3 --inFile 'JoinClip'
+    python3 %(prog)s --speed 0.5 --outFile 'ClipRaw' --inFile 'NewSpeedClip'
     '''
 
     parser = argparse.ArgumentParser(description='Helper for creating video clips.',
@@ -29,6 +30,9 @@ def init():
     
     parser.add_argument('--inFile', type=str, help='Save to file.')
     parser.add_argument('--outFile', type=str, help='Read file.')
+    parser.add_argument('--fps', type=int, help='fps.')
+    parser.add_argument('--widthSCR', type=int, help='Screen width.')
+    parser.add_argument('--heightSCR', type=int, help='Screen height.')
     
     # Crop
     parser.add_argument('--crop', action='store_true', help='Crop video.')
@@ -61,6 +65,9 @@ def init():
 
     # GetNewName
     parser.add_argument('--autoNameFile', action='store_true', help='Creating auto file names.')
+
+    # Change speed video
+    parser.add_argument('--speed', type=any, help='Set speed of video.')
 
     args = parser.parse_args()
 
