@@ -8,6 +8,6 @@ def AddFadeEffect(fromfileName: str,
                   duration: any):
 
     # Get clip
-    clip = mpy.VideoFileClip(fromfileName).fadein(1.5).fadeout(.5)
+    clip = mpy.VideoFileClip(fromfileName).fadein(duration).fadeout(duration)
     
     clip.write_videofile(toFileName, fps=24, threads=1, codec="libx264")
