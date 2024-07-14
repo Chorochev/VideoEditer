@@ -15,9 +15,22 @@ resultFile = commands.GetInFileName()
 
 if(commands.args.record):      
     nameFile = commands.GetNameRecordFile("record")
-    fps = commands.args.fps
-    widthSCR = commands.args.widthSCR
-    heightSCR = commands.args.heightSCR
+    
+    if(commands.args.fps):
+        fps = commands.args.fps
+    else:
+        fps = 10
+    
+    if(commands.args.widthSCR):
+        widthSCR = commands.args.widthSCR
+    else:
+        widthSCR = 1920
+
+    if(commands.args.heightSCR):
+        heightSCR = commands.args.heightSCR
+    else:
+        heightSCR = 1080
+        
     VideoRecord(fps, (widthSCR, heightSCR) , nameFile)
 
 if(commands.args.crop):  

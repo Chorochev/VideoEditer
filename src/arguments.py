@@ -10,7 +10,9 @@ def init():
 
     example_text = '''examples:
     python3 %(prog)s --help
+    python3 %(prog)s --record --autoNameFile
     python3 %(prog)s --record --inFile 'ClipRaw' --fps 10 --widthSCR 1920 --heightSCR 1080
+    python3 %(prog)s --record --autoNameFile --fps 10 --widthSCR 1920 --heightSCR 1080
     python3 %(prog)s --crop --outFile 'ClipRaw' --inFile 'ClipCrop' -x 37 -y 160 -wd 576 -ht 665
     python3 %(prog)s --slowDown --outFile 'ClipCrop' --inFile 'ClipSlow' --speedRatio 0.66
     python3 %(prog)s --addTitle --outFile 'ClipCrop' --inFile 'ClipWithTitle' --caption 'SELECT'
